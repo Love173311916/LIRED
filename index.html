@@ -362,12 +362,16 @@ function renderHome(c){
 function renderDayWorkout(d, idx){
   const hw = document.getElementById('homeWorkout');
   if(!d.exercises.length){
-    hw.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day — recover & recharge!</div></div>`;
+    hw.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day — recover & recharge!</div></div>
+    <button class="startBtn" style="background:var(--bg3);color:var(--text);margin-top:8px" onclick="editDay(${idx})">✏️ Edit This Day</button>`;
     return;
   }
   hw.innerHTML=`
     <div class="card">
-      <div class="cardTitle">${d.name}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div class="cardTitle" style="margin-bottom:0">${d.name}</div>
+        <button onclick="editDay(${idx})" style="background:none;border:0.5px solid var(--border);border-radius:8px;color:var(--accent);font-size:13px;padding:4px 10px;cursor:pointer">✏️ Edit</button>
+      </div>
       <div id="exList"></div>
     </div>
     <button class="startBtn" onclick="showTab('progress',document.getElementById('nb1'))">Start Logging →</button>
@@ -382,6 +386,79 @@ function renderDayWorkout(d, idx){
       </div>
     </div>`;
   });
+}
+
+function editDay(idx){
+  const planDays = plan().days;
+  const d = planDays[idx];
+  const c = document.getElementById('mainContent');
+  let html=`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <button onclick="showTab('home',document.getElementById('nb0'))" style="background:none;border:none;color:var(--accent);font-size:22px;cursor:pointer">←</button>
+      <div class="sectionTitle" style="margin-bottom:0">Edit Workout</div>
+    </div>
+    <div class="card">
+      <div class="cardTitle">Day Name</div>
+      <input id="editDayName" value="${d.name}" class="weightInput" style="width:100%;margin-bottom:0">
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div class="cardTitle" style="margin-bottom:0">Exercises</div>
+        <button onclick="addExercise(${idx})" style="background:var(--accent);color:#fff;border:none;border-radius:8px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer">+ Add</button>
+      </div>
+      <div id="editExList">`;
+  d.exercises.forEach((ex,ei)=>{
+    html+=`<div id="exRow_${ei}" style="margin-bottom:12px;padding:10px;background:var(--bg3);border-radius:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:13px;font-weight:600;color:var(--accent)">Exercise ${ei+1}</span>
+        <button onclick="removeExercise(${idx},${ei})" style="background:none;border:none;color:#FF3B30;font-size:16px;cursor:pointer">✕</button>
+      </div>
+      <input value="${ex.name}" id="exName_${ei}" placeholder="Exercise name" class="weightInput" style="width:100%;margin-bottom:6px">
+      <div style="display:flex;gap:8px">
+        <input value="${ex.sets}" id="exSets_${ei}" placeholder="Sets" class="weightInput" style="flex:1">
+        <input value="${ex.reps}" id="exReps_${ei}" placeholder="Reps" class="weightInput" style="flex:1">
+      </div>
+    </div>`;
+  });
+  html+=`</div></div>
+    <button class="saveLogBtn" onclick="saveDayEdits(${idx})">Save Changes ✓</button>
+  `;
+  c.innerHTML=html;
+}
+
+function addExercise(dayIdx){
+  saveDayEdits(dayIdx, true);
+  plan().days[dayIdx].exercises.push({name:'New Exercise',sets:'3',reps:'10'});
+  save();
+  editDay(dayIdx);
+}
+
+function removeExercise(dayIdx, exIdx){
+  saveDayEdits(dayIdx, true);
+  plan().days[dayIdx].exercises.splice(exIdx,1);
+  save();
+  editDay(dayIdx);
+}
+
+function saveDayEdits(dayIdx, silent=false){
+  const d = plan().days[dayIdx];
+  const nameEl = document.getElementById('editDayName');
+  if(nameEl) d.name = nameEl.value;
+  d.exercises.forEach((ex,ei)=>{
+    const n=document.getElementById(`exName_${ei}`);
+    const s=document.getElementById(`exSets_${ei}`);
+    const r=document.getElementById(`exReps_${ei}`);
+    if(n) ex.name=n.value;
+    if(s) ex.sets=s.value;
+    if(r) ex.reps=r.value;
+  });
+  save();
+  if(!silent){
+    const btn=document.querySelector('.saveLogBtn');
+    if(btn){btn.textContent='Saved! ✓';btn.style.background='#30d158';
+      setTimeout(()=>showTab('home',document.getElementById('nb0')),800);
+    }
+  }
 }
 
 // PROGRESS
