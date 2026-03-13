@@ -5,26 +5,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="GymPal">
-<meta name="application-name" content="GymPal">
-<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4aa.png">
 <title>GymPal</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d0d0f;--bg2:#1c1c1e;--bg3:#2c2c2e;
-  --text:#f0eeeb;--text2:#a0a0a0;
-  --accent:#34C759;--border:#2c2c2e;
-  --card:#1c1c1e;--red:#FF3B30;--blue:#0A84FF;--pink:#FF2D78;--black:#111;
-}
-.light{
-  --bg:#f2f2f7;--bg2:#fff;--bg3:#e5e5ea;
-  --text:#000;--text2:#6e6e73;--border:#d1d1d6;--card:#fff;
-}
+:root{--bg:#0d0d0f;--bg2:#1c1c1e;--bg3:#2c2c2e;--text:#f0eeeb;--text2:#a0a0a0;--accent:#34C759;--border:#2c2c2e;--card:#1c1c1e;--red:#FF3B30;--blue:#0A84FF;--pink:#FF2D78}
+.light{--bg:#f2f2f7;--bg2:#fff;--bg3:#e5e5ea;--text:#000;--text2:#6e6e73;--border:#d1d1d6;--card:#fff}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;min-height:100vh;transition:background .3s,color .3s}
-
-/* PROFILE SCREEN */
 #profileScreen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px;gap:24px}
-.appTitle{font-size:28px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.appTitle{font-size:28px;font-weight:700;color:var(--accent)}
 .appSub{font-size:14px;color:var(--text2);margin-bottom:16px}
 .profiles{display:flex;gap:16px;width:100%;max-width:400px}
 .profileCard{flex:1;background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:24px 12px;display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer;transition:border-color .2s,transform .1s}
@@ -33,45 +21,37 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .avatarWrap{width:80px;height:80px;border-radius:50%;overflow:hidden;background:var(--bg3);display:flex;align-items:center;justify-content:center;border:2px solid var(--accent)}
 .avatarWrap img{width:100%;height:100%;object-fit:cover}
 .avatarInitial{font-size:28px;font-weight:600;color:var(--accent)}
-.profileName{font-size:16px;font-weight:600;color:var(--text)}
+.profileName{font-size:16px;font-weight:600}
 .profilePlan{font-size:12px;color:var(--text2);text-align:center}
 .enterBtn{width:100%;max-width:400px;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:16px;font-size:17px;font-weight:600;cursor:pointer}
-
-/* APP SHELL */
 #appShell{display:none;flex-direction:column;min-height:100vh}
 .topBar{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 8px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:0.5px solid var(--border)}
 .topBar .logo{font-size:20px;font-weight:700;color:var(--accent)}
 .topActions{display:flex;gap:12px;align-items:center}
 .iconBtn{background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;padding:4px}
 .content{flex:1;overflow-y:auto;padding:16px;padding-bottom:80px}
-
-/* BOTTOM NAV */
 .bottomNav{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:0.5px solid var(--border);display:flex;z-index:10}
-.navBtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 14px;border:none;background:none;cursor:pointer;color:var(--text2);font-size:10px;transition:color .2s}
+.navBtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 14px;border:none;background:none;cursor:pointer;color:var(--text2);font-size:10px}
 .navBtn.active{color:var(--accent)}
 .navBtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-
-/* CARDS */
 .card{background:var(--card);border:0.5px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px}
 .cardTitle{font-size:13px;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
 .sectionTitle{font-size:20px;font-weight:600;margin-bottom:16px}
-
-/* HOME */
 .dayChips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
 .dayChips::-webkit-scrollbar{display:none}
 .chip{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);font-size:13px;cursor:pointer;white-space:nowrap;color:var(--text2)}
 .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.exerciseItem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid var(--border)}
+.exerciseItem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid var(--border);cursor:pointer}
+.exerciseItem:active{opacity:0.7}
 .exerciseItem:last-child{border-bottom:none}
 .exNum{width:28px;height:28px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--accent);flex-shrink:0}
 .exInfo{flex:1}
 .exName{font-size:15px;font-weight:500}
 .exSets{font-size:12px;color:var(--text2);margin-top:2px}
+.exArrow{color:var(--text2);font-size:16px}
 .startBtn{padding:14px;background:var(--accent);color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:600;width:100%;cursor:pointer;margin-top:4px}
-
-/* PROGRESS */
-.progressDay{margin-bottom:16px}
-.progressDayTitle{font-size:16px;font-weight:600;margin-bottom:10px;color:var(--accent)}
+.progressBar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin:6px 0 12px}
+.progressFill{height:100%;background:var(--accent);border-radius:3px;transition:width .3s}
 .logRow{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .logLabel{font-size:14px;flex:1}
 .logInput{width:64px;padding:7px 8px;border-radius:10px;border:0.5px solid var(--border);background:var(--bg3);color:var(--text);font-size:14px;text-align:center}
@@ -82,33 +62,24 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .timerBtn{padding:8px 16px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer}
 .timerStart{background:var(--accent);color:#fff}
 .timerReset{background:var(--bg2);color:var(--text);border:0.5px solid var(--border)}
-
-/* WEIGHT */
+.weightInput{flex:1;padding:12px;border-radius:12px;border:0.5px solid var(--border);background:var(--bg3);color:var(--text);font-size:16px;width:100%}
 .weightForm{display:flex;gap:8px;margin-bottom:16px}
-.weightInput{flex:1;padding:12px;border-radius:12px;border:0.5px solid var(--border);background:var(--bg3);color:var(--text);font-size:16px}
 .weightAddBtn{padding:12px 16px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer}
 .weightList{display:flex;flex-direction:column;gap:8px}
 .weightRow{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--bg3);border-radius:12px}
 .weightVal{font-size:18px;font-weight:600}
 .weightDate{font-size:12px;color:var(--text2)}
 .chartWrap{width:100%;height:180px;position:relative;margin-bottom:16px}
-canvas{width:100%!important}
-
-/* NUTRITION */
 .macroRow{display:flex;gap:8px;margin-bottom:16px}
 .macroCard{flex:1;background:var(--bg3);border-radius:14px;padding:12px 8px;text-align:center}
 .macroVal{font-size:22px;font-weight:600}
 .macroLabel{font-size:11px;color:var(--text2);margin-top:2px}
-.progressBar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin:6px 0 12px}
-.progressFill{height:100%;background:var(--accent);border-radius:3px;transition:width .3s}
 .mealForm{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
 .mealInput{padding:11px 14px;border-radius:12px;border:0.5px solid var(--border);background:var(--bg3);color:var(--text);font-size:15px}
 .mealRow{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--bg3);border-radius:12px;margin-bottom:6px}
 .mealName{font-size:14px;font-weight:500}
 .mealCal{font-size:14px;color:var(--accent);font-weight:600}
 .delBtn{background:none;border:none;color:var(--red);font-size:18px;cursor:pointer;padding:0 4px}
-
-/* SETTINGS */
 .settingRow{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:0.5px solid var(--border)}
 .settingLabel{font-size:15px}
 .toggle{width:44px;height:26px;background:var(--bg3);border-radius:13px;position:relative;cursor:pointer;transition:background .2s;border:none}
@@ -116,20 +87,33 @@ canvas{width:100%!important}
 .toggle::after{content:'';position:absolute;width:22px;height:22px;background:#fff;border-radius:50%;top:2px;left:2px;transition:left .2s}
 .toggle.on::after{left:20px}
 .colorPicker{display:flex;gap:8px}
-.colorDot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.colorDot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent}
 .colorDot.selected{border-color:var(--text)}
 .photoPickerBtn{padding:8px 14px;background:var(--bg3);border:0.5px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;cursor:pointer}
 .switchProfileBtn{width:100%;padding:14px;background:var(--bg3);border:0.5px solid var(--border);border-radius:14px;color:var(--text);font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
+
+/* EXERCISE MODAL */
+.modalOverlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:100;display:flex;align-items:flex-end;justify-content:center}
+.modalSheet{background:var(--bg2);border-radius:24px 24px 0 0;width:100%;max-width:500px;padding:20px;max-height:85vh;overflow-y:auto}
+.modalHandle{width:36px;height:4px;background:var(--bg3);border-radius:2px;margin:0 auto 16px}
+.modalExName{font-size:20px;font-weight:700;margin-bottom:4px}
+.modalMuscle{font-size:13px;color:var(--accent);margin-bottom:16px}
+.gifWrap{width:100%;border-radius:16px;overflow:hidden;background:var(--bg3);margin-bottom:16px;display:flex;align-items:center;justify-content:center;min-height:200px}
+.gifWrap img{width:100%;border-radius:16px}
+.formTip{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:0.5px solid var(--border)}
+.formTip:last-child{border-bottom:none}
+.tipNum{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
+.tipText{font-size:14px;line-height:1.5}
+.closeModalBtn{width:100%;padding:14px;background:var(--bg3);border:none;border-radius:14px;color:var(--text);font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}
 </style>
 </head>
 <body>
 
-<!-- PROFILE SCREEN -->
 <div id="profileScreen">
   <div class="appTitle">💪 GymPal</div>
   <div class="appSub">Select your profile to continue</div>
   <div class="profiles">
-    <div class="profileCard" onclick="selectProfile(0)" id="pc0">
+    <div class="profileCard selected" onclick="selectProfile(0)" id="pc0">
       <div class="avatarWrap" id="av0"><span class="avatarInitial" id="ai0">R</span></div>
       <div class="profileName" id="pn0">Rediet</div>
       <div class="profilePlan">5-Day Intermediate</div>
@@ -143,227 +127,199 @@ canvas{width:100%!important}
   <button class="enterBtn" onclick="enterApp()">Enter App</button>
 </div>
 
-<!-- APP SHELL -->
 <div id="appShell">
   <div class="topBar">
     <div class="logo">💪 GymPal</div>
     <div class="topActions">
       <span id="topProfileName" style="font-size:14px;font-weight:600"></span>
-      <button class="iconBtn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
+      <button class="iconBtn" onclick="toggleTheme()">☀️</button>
     </div>
   </div>
   <div class="content" id="mainContent"></div>
   <nav class="bottomNav">
     <button class="navBtn active" onclick="showTab('home',this)" id="nb0">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Home
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home
     </button>
     <button class="navBtn" onclick="showTab('progress',this)" id="nb1">
-      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Progress
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Progress
     </button>
     <button class="navBtn" onclick="showTab('weight',this)" id="nb2">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-      Weight
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Weight
     </button>
     <button class="navBtn" onclick="showTab('nutrition',this)" id="nb3">
-      <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-      Nutrition
+      <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Nutrition
     </button>
     <button class="navBtn" onclick="showTab('settings',this)" id="nb4">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-      Settings
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings
     </button>
   </nav>
 </div>
 
 <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhoto(event)">
+<input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script>
-// DATA
-const plans = [
-  {
-    name:"5-Day Intermediate",
-    days:[
-      {day:"Monday",name:"Push Day",exercises:[
-        {name:"Barbell Bench Press",sets:"4",reps:"8-10"},
-        {name:"Incline Dumbbell Press",sets:"3",reps:"10-12"},
-        {name:"Cable Chest Fly",sets:"3",reps:"12-15"},
-        {name:"Overhead Press",sets:"4",reps:"8-10"},
-        {name:"Lateral Raises",sets:"3",reps:"15"},
-        {name:"Tricep Pushdown",sets:"3",reps:"12"},
-        {name:"Overhead Tricep Ext.",sets:"3",reps:"12"}
-      ]},
-      {day:"Tuesday",name:"Pull Day",exercises:[
-        {name:"Deadlift",sets:"4",reps:"6-8"},
-        {name:"Pull-ups",sets:"4",reps:"8-10"},
-        {name:"Seated Cable Row",sets:"3",reps:"10-12"},
-        {name:"Face Pulls",sets:"3",reps:"15"},
-        {name:"Barbell Curl",sets:"3",reps:"10-12"},
-        {name:"Hammer Curl",sets:"3",reps:"12"}
-      ]},
-      {day:"Wednesday",name:"Legs Day",exercises:[
-        {name:"Barbell Squat",sets:"4",reps:"8-10"},
-        {name:"Romanian Deadlift",sets:"3",reps:"10-12"},
-        {name:"Leg Press",sets:"3",reps:"12-15"},
-        {name:"Leg Curl",sets:"3",reps:"12"},
-        {name:"Calf Raises",sets:"4",reps:"15-20"},
-        {name:"Lunges",sets:"3",reps:"12 each"}
-      ]},
-      {day:"Thursday",name:"Upper Day",exercises:[
-        {name:"Dumbbell Bench Press",sets:"4",reps:"10-12"},
-        {name:"Bent Over Row",sets:"4",reps:"10-12"},
-        {name:"Arnold Press",sets:"3",reps:"10-12"},
-        {name:"Cable Lateral Raise",sets:"3",reps:"15"},
-        {name:"EZ Bar Curl",sets:"3",reps:"12"},
-        {name:"Skull Crushers",sets:"3",reps:"12"}
-      ]},
-      {day:"Friday",name:"Full Body HIIT",exercises:[
-        {name:"Burpees",sets:"4",reps:"30 sec"},
-        {name:"Kettlebell Swings",sets:"4",reps:"15"},
-        {name:"Box Jumps",sets:"3",reps:"10"},
-        {name:"Battle Ropes",sets:"3",reps:"30 sec"},
-        {name:"Mountain Climbers",sets:"4",reps:"30 sec"},
-        {name:"Jump Squats",sets:"3",reps:"15"}
-      ]}
-    ]
-  },
-  {
-    name:"4-Day Beginner",
-    days:[
-      {day:"Monday",name:"Full Body A",exercises:[
-        {name:"Goblet Squat",sets:"3",reps:"10"},
-        {name:"Dumbbell Bench Press",sets:"3",reps:"10"},
-        {name:"Dumbbell Row",sets:"3",reps:"10 each"},
-        {name:"Plank",sets:"3",reps:"30 sec"},
-        {name:"Glute Bridge",sets:"3",reps:"15"}
-      ]},
-      {day:"Tuesday",name:"Rest Day",exercises:[]},
-      {day:"Wednesday",name:"Full Body B",exercises:[
-        {name:"Leg Press",sets:"3",reps:"12"},
-        {name:"Incline Dumbbell Press",sets:"3",reps:"10"},
-        {name:"Lat Pulldown",sets:"3",reps:"10"},
-        {name:"Dumbbell Curl",sets:"3",reps:"12"},
-        {name:"Tricep Pushdown",sets:"3",reps:"12"}
-      ]},
-      {day:"Thursday",name:"Rest Day",exercises:[]},
-      {day:"Friday",name:"Full Body C",exercises:[
-        {name:"Romanian Deadlift",sets:"3",reps:"10"},
-        {name:"Push-ups",sets:"3",reps:"10-12"},
-        {name:"Cable Row",sets:"3",reps:"12"},
-        {name:"Lateral Raises",sets:"3",reps:"15"},
-        {name:"Calf Raises",sets:"3",reps:"15"}
-      ]},
-      {day:"Saturday",name:"Cardio & Core",exercises:[
-        {name:"Treadmill Walk/Jog",sets:"1",reps:"20 min"},
-        {name:"Bicycle Crunches",sets:"3",reps:"20"},
-        {name:"Leg Raises",sets:"3",reps:"15"},
-        {name:"Russian Twists",sets:"3",reps:"20"}
-      ]},
-      {day:"Sunday",name:"Rest Day",exercises:[]}
-    ]
-  }
-];
+const exerciseData = {
+  "Barbell Bench Press":{muscle:"Chest · Triceps · Shoulders",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Lie flat, feet on floor, arch naturally","Grip slightly wider than shoulder width","Lower bar to mid-chest with control","Press up and slightly back, lockout at top"]},
+  "Incline Dumbbell Press":{muscle:"Upper Chest · Shoulders",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Set bench to 30-45 degrees","Keep dumbbells in line with upper chest","Lower slowly, feel the stretch","Drive up without locking elbows fully"]},
+  "Cable Chest Fly":{muscle:"Chest · Front Deltoids",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Stand centered between cables","Slight bend in elbows throughout","Bring hands together in arc motion","Squeeze chest hard at the center"]},
+  "Overhead Press":{muscle:"Shoulders · Triceps · Upper Chest",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Stand with core braced","Bar starts at collar bone level","Press straight up, head slightly back","Full lockout at top, lower with control"]},
+  "Lateral Raises":{muscle:"Side Deltoids",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Slight bend in elbows","Lead with elbows, not hands","Raise to shoulder height only","Lower slowly — 3 seconds down"]},
+  "Tricep Pushdown":{muscle:"Triceps",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Keep elbows locked at sides","Full extension at bottom","Controlled return to start","Don't use body momentum"]},
+  "Overhead Tricep Ext.":{muscle:"Triceps — Long Head",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Keep upper arms close to head","Lower weight behind head slowly","Extend fully at top","Keep core tight throughout"]},
+  "Deadlift":{muscle:"Hamstrings · Glutes · Back · Traps",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Feet hip-width, bar over mid-foot","Hinge hips back, chest up","Drive through floor, keep bar close","Lock hips and knees out at top"]},
+  "Pull-ups":{muscle:"Lats · Biceps · Rear Deltoids",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Full hang at bottom","Pull elbows down and back","Chin over bar at top","Lower fully for full range"]},
+  "Seated Cable Row":{muscle:"Mid Back · Lats · Biceps",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Sit tall, slight knee bend","Pull to lower chest/upper abs","Squeeze shoulder blades together","Slow controlled return"]},
+  "Face Pulls":{muscle:"Rear Deltoids · Rotator Cuff",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Set cable at face height","Pull to forehead, elbows high","External rotate at end position","Great for shoulder health"]},
+  "Barbell Curl":{muscle:"Biceps · Forearms",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Keep elbows at sides","Full extension at bottom","Squeeze at top","Don't swing body"]},
+  "Hammer Curl":{muscle:"Biceps · Brachialis · Forearms",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Neutral grip — thumbs up","Keep elbows pinned at sides","Curl to shoulder height","Lower with control"]},
+  "Barbell Squat":{muscle:"Quads · Glutes · Hamstrings · Core",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Bar on upper traps, feet shoulder width","Chest up, core braced","Squat to parallel or below","Drive knees out, push through heels"]},
+  "Romanian Deadlift":{muscle:"Hamstrings · Glutes · Lower Back",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Slight bend in knees throughout","Hinge at hips, push them back","Feel hamstring stretch at bottom","Drive hips forward to stand"]},
+  "Leg Press":{muscle:"Quads · Glutes · Hamstrings",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Feet shoulder width on platform","Lower until 90 degree knee angle","Don't lock knees fully at top","Keep lower back against pad"]},
+  "Leg Curl":{muscle:"Hamstrings",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Curl heels toward glutes","Squeeze hamstrings at top","Lower slowly — 3 seconds","Keep hips pressed down"]},
+  "Calf Raises":{muscle:"Gastrocnemius · Soleus",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Full stretch at bottom","Pause at top, squeeze calves","Slow controlled movement","Try single leg for progression"]},
+  "Lunges":{muscle:"Quads · Glutes · Hamstrings",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Step forward, knee over ankle","Back knee lowers toward floor","Keep torso upright","Push through front heel to return"]},
+  "Dumbbell Bench Press":{muscle:"Chest · Triceps · Shoulders",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Greater range of motion than barbell","Lower until elbows at 90 degrees","Press up and slightly together","Control the weight throughout"]},
+  "Bent Over Row":{muscle:"Mid Back · Lats · Rear Delts",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Hinge forward 45 degrees","Pull bar to lower chest","Drive elbows back and up","Keep back flat, not rounded"]},
+  "Arnold Press":{muscle:"All Three Shoulder Heads",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Start palms facing you","Rotate palms out as you press","Full rotation hits all deltoid heads","Lower slowly reversing rotation"]},
+  "Cable Lateral Raise":{muscle:"Side Deltoids",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Cable gives constant tension","Lead with elbow, not wrist","Raise to shoulder height","Slow controlled lowering"]},
+  "EZ Bar Curl":{muscle:"Biceps · Forearms",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Angled grip reduces wrist strain","Keep elbows at sides","Full range of motion","Squeeze at top"]},
+  "Skull Crushers":{muscle:"Triceps — All Heads",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Lower bar to forehead slowly","Keep elbows pointing up","Full extension at top","Use spotter for heavy weights"]},
+  "Burpees":{muscle:"Full Body · Cardio",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Jump feet back to plank position","Optional push-up at bottom","Jump feet forward, then jump up","Land softly, repeat immediately"]},
+  "Kettlebell Swings":{muscle:"Glutes · Hamstrings · Core · Shoulders",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Hinge hips — not a squat","Drive hips forward explosively","Arms float up from hip power","Let bell swing back between legs"]},
+  "Box Jumps":{muscle:"Quads · Glutes · Calves · Power",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Bend knees, swing arms back","Explode up, land softly on box","Step down — don't jump down","Land with knees slightly bent"]},
+  "Battle Ropes":{muscle:"Shoulders · Arms · Core · Cardio",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Slight squat stance","Alternate arm waves","Keep core engaged","Breathe rhythmically throughout"]},
+  "Mountain Climbers":{muscle:"Core · Shoulders · Hip Flexors · Cardio",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Start in plank position","Drive knees to chest alternately","Keep hips level — don't bounce","Move as fast as form allows"]},
+  "Jump Squats":{muscle:"Quads · Glutes · Calves · Power",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Squat to parallel","Explode up as high as possible","Land softly, absorb with knees","Go straight into next rep"]},
+  "Goblet Squat":{muscle:"Quads · Glutes · Core",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Hold dumbbell at chest","Feet slightly wider than hips","Squat deep, elbows inside knees","Drive up through heels"]},
+  "Dumbbell Row":{muscle:"Lats · Mid Back · Biceps",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Support with knee and hand on bench","Pull dumbbell to hip","Elbow drives back and up","Full stretch at bottom"]},
+  "Plank":{muscle:"Core · Shoulders · Glutes",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Forearms on floor, elbows under shoulders","Body in straight line head to heel","Squeeze glutes and core hard","Breathe steadily throughout"]},
+  "Glute Bridge":{muscle:"Glutes · Hamstrings · Core",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Feet flat, knees bent","Drive hips up, squeeze glutes hard","Hold 1-2 seconds at top","Lower with control"]},
+  "Lat Pulldown":{muscle:"Lats · Biceps · Rear Delts",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Grip slightly wider than shoulders","Lean back slightly","Pull bar to upper chest","Slow controlled return"]},
+  "Dumbbell Curl":{muscle:"Biceps · Forearms",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Alternate arms or together","Keep elbows at sides","Supinate wrist as you curl","Full range of motion"]},
+  "Cable Row":{muscle:"Mid Back · Lats · Biceps",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Sit tall with slight knee bend","Pull to lower chest","Squeeze shoulder blades","Slow return to full stretch"]},
+  "Push-ups":{muscle:"Chest · Triceps · Shoulders · Core",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Hands slightly wider than shoulders","Body straight head to heel","Lower chest to floor","Full lockout at top"]},
+  "Treadmill Walk/Jog":{muscle:"Cardio · Legs · Heart",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Warm up at walk pace first","Maintain upright posture","Land mid-foot not heel","Aim for conversational pace"]},
+  "Bicycle Crunches":{muscle:"Abs · Obliques",gif:"https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",tips:["Hands behind head lightly","Rotate elbow to opposite knee","Extend other leg fully","Slow and controlled beats speed"]},
+  "Leg Raises":{muscle:"Lower Abs · Hip Flexors",gif:"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",tips:["Lie flat, hands under lower back","Keep legs straight or slight bend","Lower without touching floor","Control on the way down"]},
+  "Russian Twists":{muscle:"Obliques · Core",gif:"https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",tips:["Sit at 45 degrees, feet raised","Rotate side to side","Touch floor each side","Add weight for progression"]}
+};
 
-const fontColors = {green:'#34C759',red:'#FF3B30',blue:'#0A84FF',pink:'#FF2D78',black:'#111111'};
-let profiles = JSON.parse(localStorage.getItem('gymProfiles')||'null') || [
-  {name:'Rediet',photo:null,fontColor:'green',darkMode:true,logs:{},weightLog:[],meals:[],calGoal:2000,calGoalRest:1600,plan:0},
-  {name:'Partner',photo:null,fontColor:'green',darkMode:true,logs:{},weightLog:[],meals:[],calGoal:1800,calGoalRest:1400,plan:1}
+const fontColors={green:'#34C759',red:'#FF3B30',blue:'#0A84FF',pink:'#FF2D78',black:'#111111'};
+let profiles=JSON.parse(localStorage.getItem('gymProfiles')||'null')||[
+  {name:'Rediet',photo:null,fontColor:'green',darkMode:true,logs:{},weightLog:[],meals:[],calGoal:2000,calGoalRest:1600,plan:0,history:{}},
+  {name:'Partner',photo:null,fontColor:'green',darkMode:true,logs:{},weightLog:[],meals:[],calGoal:1800,calGoalRest:1400,plan:1,history:{}}
 ];
-let currentProfile = 0;
-let selectedProfileIdx = 0;
-let currentTab = 'home';
-let timerInterval = null;
-let timerSecs = 60;
-let timerRunning = false;
-let weightChart = null;
+let currentProfile=0,selectedProfileIdx=0,currentTab='home',timerInterval=null,timerSecs=60,timerRunning=false,weightChart=null;
+
+const plans=[
+  {name:"5-Day Intermediate",days:[
+    {day:"Monday",name:"Push Day",exercises:[{name:"Barbell Bench Press",sets:"4",reps:"8-10"},{name:"Incline Dumbbell Press",sets:"3",reps:"10-12"},{name:"Cable Chest Fly",sets:"3",reps:"12-15"},{name:"Overhead Press",sets:"4",reps:"8-10"},{name:"Lateral Raises",sets:"3",reps:"15"},{name:"Tricep Pushdown",sets:"3",reps:"12"},{name:"Overhead Tricep Ext.",sets:"3",reps:"12"}]},
+    {day:"Tuesday",name:"Pull Day",exercises:[{name:"Deadlift",sets:"4",reps:"6-8"},{name:"Pull-ups",sets:"4",reps:"8-10"},{name:"Seated Cable Row",sets:"3",reps:"10-12"},{name:"Face Pulls",sets:"3",reps:"15"},{name:"Barbell Curl",sets:"3",reps:"10-12"},{name:"Hammer Curl",sets:"3",reps:"12"}]},
+    {day:"Wednesday",name:"Legs Day",exercises:[{name:"Barbell Squat",sets:"4",reps:"8-10"},{name:"Romanian Deadlift",sets:"3",reps:"10-12"},{name:"Leg Press",sets:"3",reps:"12-15"},{name:"Leg Curl",sets:"3",reps:"12"},{name:"Calf Raises",sets:"4",reps:"15-20"},{name:"Lunges",sets:"3",reps:"12 each"}]},
+    {day:"Thursday",name:"Upper Day",exercises:[{name:"Dumbbell Bench Press",sets:"4",reps:"10-12"},{name:"Bent Over Row",sets:"4",reps:"10-12"},{name:"Arnold Press",sets:"3",reps:"10-12"},{name:"Cable Lateral Raise",sets:"3",reps:"15"},{name:"EZ Bar Curl",sets:"3",reps:"12"},{name:"Skull Crushers",sets:"3",reps:"12"}]},
+    {day:"Friday",name:"Full Body HIIT",exercises:[{name:"Burpees",sets:"4",reps:"30 sec"},{name:"Kettlebell Swings",sets:"4",reps:"15"},{name:"Box Jumps",sets:"3",reps:"10"},{name:"Battle Ropes",sets:"3",reps:"30 sec"},{name:"Mountain Climbers",sets:"4",reps:"30 sec"},{name:"Jump Squats",sets:"3",reps:"15"}]}
+  ]},
+  {name:"4-Day Beginner",days:[
+    {day:"Monday",name:"Full Body A",exercises:[{name:"Goblet Squat",sets:"3",reps:"10"},{name:"Dumbbell Bench Press",sets:"3",reps:"10"},{name:"Dumbbell Row",sets:"3",reps:"10 each"},{name:"Plank",sets:"3",reps:"30 sec"},{name:"Glute Bridge",sets:"3",reps:"15"}]},
+    {day:"Tuesday",name:"Rest Day",exercises:[]},
+    {day:"Wednesday",name:"Full Body B",exercises:[{name:"Leg Press",sets:"3",reps:"12"},{name:"Incline Dumbbell Press",sets:"3",reps:"10"},{name:"Lat Pulldown",sets:"3",reps:"10"},{name:"Dumbbell Curl",sets:"3",reps:"12"},{name:"Tricep Pushdown",sets:"3",reps:"12"}]},
+    {day:"Thursday",name:"Rest Day",exercises:[]},
+    {day:"Friday",name:"Full Body C",exercises:[{name:"Romanian Deadlift",sets:"3",reps:"10"},{name:"Push-ups",sets:"3",reps:"10-12"},{name:"Cable Row",sets:"3",reps:"12"},{name:"Lateral Raises",sets:"3",reps:"15"},{name:"Calf Raises",sets:"3",reps:"15"}]},
+    {day:"Saturday",name:"Cardio & Core",exercises:[{name:"Treadmill Walk/Jog",sets:"1",reps:"20 min"},{name:"Bicycle Crunches",sets:"3",reps:"20"},{name:"Leg Raises",sets:"3",reps:"15"},{name:"Russian Twists",sets:"3",reps:"20"}]},
+    {day:"Sunday",name:"Rest Day",exercises:[]}
+  ]}
+];
 
 function save(){localStorage.setItem('gymProfiles',JSON.stringify(profiles))}
 function p(){return profiles[currentProfile]}
 function plan(){return plans[p().plan]}
 
 function selectProfile(i){
-  selectedProfileIdx = i;
+  selectedProfileIdx=i;
   document.querySelectorAll('.profileCard').forEach((c,j)=>c.classList.toggle('selected',j===i));
-  // update initials/photos on profile screen
   profiles.forEach((pr,j)=>{
-    const ai = document.getElementById('ai'+j);
-    const av = document.getElementById('av'+j);
-    if(pr.photo){
-      av.innerHTML=`<img src="${pr.photo}">`;
-    } else {
-      av.innerHTML=`<span class="avatarInitial" style="color:${fontColors[pr.fontColor]}">${pr.name.charAt(0).toUpperCase()}</span>`;
-    }
-    document.getElementById('pn'+j).textContent = pr.name;
+    const av=document.getElementById('av'+j);
+    if(pr.photo){av.innerHTML=`<img src="${pr.photo}">`;}
+    else{av.innerHTML=`<span class="avatarInitial" style="color:${fontColors[pr.fontColor]}">${pr.name.charAt(0).toUpperCase()}</span>`;}
+    document.getElementById('pn'+j).textContent=pr.name;
   });
 }
 
 function enterApp(){
-  currentProfile = selectedProfileIdx;
+  currentProfile=selectedProfileIdx;
   document.getElementById('profileScreen').style.display='none';
-  const shell = document.getElementById('appShell');
-  shell.style.display='flex';
+  document.getElementById('appShell').style.display='flex';
   applyThemeAndFont();
-  document.getElementById('topProfileName').textContent = p().name;
-  showTab('home', document.getElementById('nb0'));
+  document.getElementById('topProfileName').textContent=p().name;
+  showTab('home',document.getElementById('nb0'));
 }
 
 function applyThemeAndFont(){
-  document.body.classList.toggle('light', !p().darkMode);
-  const fc = fontColors[p().fontColor]||'#34C759';
-  document.documentElement.style.setProperty('--accent', fc);
+  document.body.classList.toggle('light',!p().darkMode);
+  document.documentElement.style.setProperty('--accent',fontColors[p().fontColor]||'#34C759');
 }
 
-function toggleTheme(){
-  p().darkMode = !p().darkMode;
-  save();
-  applyThemeAndFont();
-}
+function toggleTheme(){p().darkMode=!p().darkMode;save();applyThemeAndFont();}
 
-function showTab(tab, btn){
-  currentTab = tab;
+function showTab(tab,btn){
+  currentTab=tab;
   document.querySelectorAll('.navBtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const c = document.getElementById('mainContent');
-  if(tab==='home') renderHome(c);
-  else if(tab==='progress') renderProgress(c);
-  else if(tab==='weight') renderWeight(c);
-  else if(tab==='nutrition') renderNutrition(c);
-  else if(tab==='settings') renderSettings(c);
+  const c=document.getElementById('mainContent');
+  if(tab==='home')renderHome(c);
+  else if(tab==='progress')renderProgress(c);
+  else if(tab==='weight')renderWeight(c);
+  else if(tab==='nutrition')renderNutrition(c);
+  else if(tab==='settings')renderSettings(c);
 }
+
+// EXERCISE MODAL
+function showExerciseModal(exName){
+  const data=exerciseData[exName]||{muscle:"Multiple Muscles",gif:"",tips:["Keep proper form","Control the weight","Breathe steadily","Full range of motion"]};
+  const overlay=document.createElement('div');
+  overlay.className='modalOverlay';
+  overlay.onclick=(e)=>{if(e.target===overlay)closeModal(overlay)};
+  overlay.innerHTML=`
+    <div class="modalSheet">
+      <div class="modalHandle"></div>
+      <div class="modalExName">${exName}</div>
+      <div class="modalMuscle">💪 ${data.muscle}</div>
+      <div class="gifWrap">
+        ${data.gif?`<img src="${data.gif}" alt="${exName}" onerror="this.parentElement.innerHTML='<div style=padding:40px;color:var(--text2);text-align:center>GIF unavailable</div>'">`:'<div style="padding:40px;color:var(--text2);text-align:center">Loading...</div>'}
+      </div>
+      <div class="cardTitle">Form Tips</div>
+      ${data.tips.map((t,i)=>`<div class="formTip"><div class="tipNum">${i+1}</div><div class="tipText">${t}</div></div>`).join('')}
+      <button class="closeModalBtn" onclick="closeModal(document.querySelector('.modalOverlay'))">Close</button>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeModal(el){if(el)el.remove();}
 
 // HOME
 function renderHome(c){
-  const today = new Date().getDay(); // 0=Sun
-  const dayMap = [6,0,1,2,3,4,5]; // map JS day to plan index
-  const planDays = plan().days;
-  let activeDayIdx = dayMap[today] % planDays.length;
-  c.innerHTML=`
-    <div class="sectionTitle">Today's Workout</div>
-    <div class="dayChips" id="dayChips"></div>
-    <div id="homeWorkout"></div>
-  `;
-  const chips = document.getElementById('dayChips');
+  const today=new Date().getDay();
+  const dayMap=[6,0,1,2,3,4,5];
+  const planDays=plan().days;
+  let activeDayIdx=dayMap[today]%planDays.length;
+  c.innerHTML=`<div class="sectionTitle">Today's Workout</div><div class="dayChips" id="dayChips"></div><div id="homeWorkout"></div>`;
+  const chips=document.getElementById('dayChips');
   planDays.forEach((d,i)=>{
-    const ch = document.createElement('div');
+    const ch=document.createElement('div');
     ch.className='chip'+(i===activeDayIdx?' active':'');
     ch.textContent=d.day;
-    ch.onclick=()=>{
-      document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
-      ch.classList.add('active');
-      renderDayWorkout(d, i);
-    };
+    ch.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));ch.classList.add('active');renderDayWorkout(d,i);};
     chips.appendChild(ch);
   });
-  renderDayWorkout(planDays[activeDayIdx], activeDayIdx);
+  renderDayWorkout(planDays[activeDayIdx],activeDayIdx);
 }
 
-function renderDayWorkout(d, idx){
-  const hw = document.getElementById('homeWorkout');
+function renderDayWorkout(d,idx){
+  const hw=document.getElementById('homeWorkout');
   if(!d.exercises.length){
-    hw.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day — recover & recharge!</div></div>
-    <button class="startBtn" style="background:var(--bg3);color:var(--text);margin-top:8px" onclick="editDay(${idx})">✏️ Edit This Day</button>`;
+    hw.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day — recover & recharge!</div></div><button class="startBtn" style="background:var(--bg3);color:var(--text);margin-top:8px" onclick="editDay(${idx})">✏️ Edit This Day</button>`;
     return;
   }
   hw.innerHTML=`
@@ -372,26 +328,25 @@ function renderDayWorkout(d, idx){
         <div class="cardTitle" style="margin-bottom:0">${d.name}</div>
         <button onclick="editDay(${idx})" style="background:none;border:0.5px solid var(--border);border-radius:8px;color:var(--accent);font-size:13px;padding:4px 10px;cursor:pointer">✏️ Edit</button>
       </div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:10px">Tap any exercise to see form guide</div>
       <div id="exList"></div>
     </div>
-    <button class="startBtn" onclick="showTab('progress',document.getElementById('nb1'))">Start Logging →</button>
-  `;
-  const el = document.getElementById('exList');
+    <button class="startBtn" onclick="showTab('progress',document.getElementById('nb1'))">Start Logging →</button>`;
+  const el=document.getElementById('exList');
   d.exercises.forEach((ex,i)=>{
-    el.innerHTML+=`<div class="exerciseItem">
+    el.innerHTML+=`<div class="exerciseItem" onclick="showExerciseModal('${ex.name.replace(/'/g,"\\'")}')">
       <div class="exNum">${i+1}</div>
-      <div class="exInfo">
-        <div class="exName">${ex.name}</div>
-        <div class="exSets">${ex.sets} sets × ${ex.reps} reps</div>
-      </div>
+      <div class="exInfo"><div class="exName">${ex.name}</div><div class="exSets">${ex.sets} sets × ${ex.reps} reps</div></div>
+      <div class="exArrow">›</div>
     </div>`;
   });
 }
 
+// EDIT DAY
 function editDay(idx){
-  const planDays = plan().days;
-  const d = planDays[idx];
-  const c = document.getElementById('mainContent');
+  const planDays=plan().days;
+  const d=planDays[idx];
+  const c=document.getElementById('mainContent');
   let html=`
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
       <button onclick="showTab('home',document.getElementById('nb0'))" style="background:none;border:none;color:var(--accent);font-size:22px;cursor:pointer">←</button>
@@ -399,7 +354,7 @@ function editDay(idx){
     </div>
     <div class="card">
       <div class="cardTitle">Day Name</div>
-      <input id="editDayName" value="${d.name}" class="weightInput" style="width:100%;margin-bottom:0">
+      <input id="editDayName" value="${d.name}" class="weightInput">
     </div>
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
@@ -408,65 +363,44 @@ function editDay(idx){
       </div>
       <div id="editExList">`;
   d.exercises.forEach((ex,ei)=>{
-    html+=`<div id="exRow_${ei}" style="margin-bottom:12px;padding:10px;background:var(--bg3);border-radius:12px">
+    html+=`<div style="margin-bottom:12px;padding:10px;background:var(--bg3);border-radius:12px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
         <span style="font-size:13px;font-weight:600;color:var(--accent)">Exercise ${ei+1}</span>
         <button onclick="removeExercise(${idx},${ei})" style="background:none;border:none;color:#FF3B30;font-size:16px;cursor:pointer">✕</button>
       </div>
-      <input value="${ex.name}" id="exName_${ei}" placeholder="Exercise name" class="weightInput" style="width:100%;margin-bottom:6px">
+      <input value="${ex.name}" id="exName_${ei}" placeholder="Exercise name" class="weightInput" style="margin-bottom:6px">
       <div style="display:flex;gap:8px">
         <input value="${ex.sets}" id="exSets_${ei}" placeholder="Sets" class="weightInput" style="flex:1">
         <input value="${ex.reps}" id="exReps_${ei}" placeholder="Reps" class="weightInput" style="flex:1">
       </div>
     </div>`;
   });
-  html+=`</div></div>
-    <button class="saveLogBtn" onclick="saveDayEdits(${idx})">Save Changes ✓</button>
-  `;
+  html+=`</div></div><button class="saveLogBtn" onclick="saveDayEdits(${idx})">Save Changes ✓</button>`;
   c.innerHTML=html;
 }
 
-function addExercise(dayIdx){
-  saveDayEdits(dayIdx, true);
-  plan().days[dayIdx].exercises.push({name:'New Exercise',sets:'3',reps:'10'});
-  save();
-  editDay(dayIdx);
-}
-
-function removeExercise(dayIdx, exIdx){
-  saveDayEdits(dayIdx, true);
-  plan().days[dayIdx].exercises.splice(exIdx,1);
-  save();
-  editDay(dayIdx);
-}
-
-function saveDayEdits(dayIdx, silent=false){
-  const d = plan().days[dayIdx];
-  const nameEl = document.getElementById('editDayName');
-  if(nameEl) d.name = nameEl.value;
+function addExercise(dayIdx){saveDayEdits(dayIdx,true);plan().days[dayIdx].exercises.push({name:'New Exercise',sets:'3',reps:'10'});save();editDay(dayIdx);}
+function removeExercise(dayIdx,exIdx){saveDayEdits(dayIdx,true);plan().days[dayIdx].exercises.splice(exIdx,1);save();editDay(dayIdx);}
+function saveDayEdits(dayIdx,silent=false){
+  const d=plan().days[dayIdx];
+  const n=document.getElementById('editDayName');
+  if(n)d.name=n.value;
   d.exercises.forEach((ex,ei)=>{
-    const n=document.getElementById(`exName_${ei}`);
-    const s=document.getElementById(`exSets_${ei}`);
-    const r=document.getElementById(`exReps_${ei}`);
-    if(n) ex.name=n.value;
-    if(s) ex.sets=s.value;
-    if(r) ex.reps=r.value;
+    const en=document.getElementById(`exName_${ei}`);
+    const es=document.getElementById(`exSets_${ei}`);
+    const er=document.getElementById(`exReps_${ei}`);
+    if(en)ex.name=en.value;if(es)ex.sets=es.value;if(er)ex.reps=er.value;
   });
   save();
-  if(!silent){
-    const btn=document.querySelector('.saveLogBtn');
-    if(btn){btn.textContent='Saved! ✓';btn.style.background='#30d158';
-      setTimeout(()=>showTab('home',document.getElementById('nb0')),800);
-    }
-  }
+  if(!silent){const btn=document.querySelector('.saveLogBtn');if(btn){btn.textContent='Saved! ✓';btn.style.background='#30d158';setTimeout(()=>showTab('home',document.getElementById('nb0')),800);}}
 }
 
 // PROGRESS
 function renderProgress(c){
-  const today = new Date().getDay();
-  const dayMap = [6,0,1,2,3,4,5];
-  const planDays = plan().days;
-  let activeDayIdx = dayMap[today] % planDays.length;
+  const today=new Date().getDay();
+  const dayMap=[6,0,1,2,3,4,5];
+  const planDays=plan().days;
+  let activeDayIdx=dayMap[today]%planDays.length;
   c.innerHTML=`
     <div class="sectionTitle">Log Progress</div>
     <div class="card" style="margin-bottom:12px">
@@ -474,65 +408,41 @@ function renderProgress(c){
       <div class="timerBox">
         <div class="timerDisplay" id="timerDisp">01:00</div>
         <select id="timerSel" style="padding:6px;border-radius:8px;background:var(--bg2);color:var(--text);border:0.5px solid var(--border);font-size:13px" onchange="setTimer(this.value)">
-          <option value="30">30s</option>
-          <option value="60" selected>1 min</option>
-          <option value="90">90s</option>
-          <option value="120">2 min</option>
-          <option value="180">3 min</option>
+          <option value="30">30s</option><option value="60" selected>1 min</option><option value="90">90s</option><option value="120">2 min</option><option value="180">3 min</option>
         </select>
         <button class="timerBtn timerStart" id="timerStartBtn" onclick="toggleTimer()">Start</button>
         <button class="timerBtn timerReset" onclick="resetTimer()">Reset</button>
       </div>
     </div>
     <div class="dayChips" id="progChips"></div>
-    <div id="progContent"></div>
-  `;
-  const chips = document.getElementById('progChips');
+    <div id="progContent"></div>`;
+  const chips=document.getElementById('progChips');
   planDays.forEach((d,i)=>{
-    const ch = document.createElement('div');
+    const ch=document.createElement('div');
     ch.className='chip'+(i===activeDayIdx?' active':'');
     ch.textContent=d.day;
-    ch.onclick=()=>{
-      document.querySelectorAll('#progChips .chip').forEach(x=>x.classList.remove('active'));
-      ch.classList.add('active');
-      renderProgressDay(d,i);
-    };
+    ch.onclick=()=>{document.querySelectorAll('#progChips .chip').forEach(x=>x.classList.remove('active'));ch.classList.add('active');renderProgressDay(d,i);};
     chips.appendChild(ch);
   });
-  renderProgressDay(planDays[activeDayIdx], activeDayIdx);
-  renderHistory(document.getElementById('progContent'));
+  renderProgressDay(planDays[activeDayIdx],activeDayIdx);
 }
 
-function renderProgressDay(d, idx){
-  const pc = document.getElementById('progContent');
-  const prevHistory = pc.querySelector('#historySection');
-  if(!d.exercises.length){
-    pc.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day</div></div>`;
-    renderHistory(pc);
-    return;
-  }
-  const logs = p().logs[idx] || {};
+function renderProgressDay(d,idx){
+  const pc=document.getElementById('progContent');
+  if(!d.exercises.length){pc.innerHTML=`<div class="card"><div style="text-align:center;padding:24px;color:var(--text2)">🛌 Rest Day</div></div>`;renderHistory(pc);return;}
+  const logs=p().logs[idx]||{};
   let html=`<div class="card"><div class="cardTitle">${d.name}</div>`;
   d.exercises.forEach((ex,ei)=>{
-    const log = logs[ei]||{sets:'',reps:'',weight:''};
+    const log=logs[ei]||{sets:'',reps:'',weight:''};
     html+=`<div style="margin-bottom:14px;padding-bottom:14px;border-bottom:0.5px solid var(--border)">
-      <div style="font-size:15px;font-weight:500;margin-bottom:8px">${ex.name}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-size:15px;font-weight:500">${ex.name}</div>
+        <button onclick="showExerciseModal('${ex.name.replace(/'/g,"\\'")}') " style="background:none;border:0.5px solid var(--border);border-radius:8px;color:var(--accent);font-size:11px;padding:3px 8px;cursor:pointer">Form ›</button>
+      </div>
       <div style="font-size:12px;color:var(--text2);margin-bottom:8px">Target: ${ex.sets} sets × ${ex.reps} reps</div>
-      <div class="logRow">
-        <span class="logLabel">Sets</span>
-        <input class="logInput" type="number" id="log_${idx}_${ei}_sets" value="${log.sets}" placeholder="0">
-        <span class="logUnit">sets</span>
-      </div>
-      <div class="logRow">
-        <span class="logLabel">Reps</span>
-        <input class="logInput" type="number" id="log_${idx}_${ei}_reps" value="${log.reps}" placeholder="0">
-        <span class="logUnit">reps</span>
-      </div>
-      <div class="logRow">
-        <span class="logLabel">Weight</span>
-        <input class="logInput" type="number" id="log_${idx}_${ei}_weight" value="${log.weight}" placeholder="0">
-        <span class="logUnit">lbs</span>
-      </div>
+      <div class="logRow"><span class="logLabel">Sets</span><input class="logInput" type="number" id="log_${idx}_${ei}_sets" value="${log.sets}" placeholder="0"><span class="logUnit">sets</span></div>
+      <div class="logRow"><span class="logLabel">Reps</span><input class="logInput" type="number" id="log_${idx}_${ei}_reps" value="${log.reps}" placeholder="0"><span class="logUnit">reps</span></div>
+      <div class="logRow"><span class="logLabel">Weight</span><input class="logInput" type="number" id="log_${idx}_${ei}_weight" value="${log.weight}" placeholder="0"><span class="logUnit">lbs</span></div>
     </div>`;
   });
   html+=`<button class="saveLogBtn" onclick="saveLog(${idx},${d.exercises.length})">Save Log ✓</button></div>`;
@@ -540,8 +450,8 @@ function renderProgressDay(d, idx){
   renderHistory(pc);
 }
 
-function saveLog(dayIdx, count){
-  if(!p().logs[dayIdx]) p().logs[dayIdx]={};
+function saveLog(dayIdx,count){
+  if(!p().logs[dayIdx])p().logs[dayIdx]={};
   for(let ei=0;ei<count;ei++){
     p().logs[dayIdx][ei]={
       sets:document.getElementById(`log_${dayIdx}_${ei}_sets`)?.value||'',
@@ -549,70 +459,61 @@ function saveLog(dayIdx, count){
       weight:document.getElementById(`log_${dayIdx}_${ei}_weight`)?.value||''
     };
   }
-  // Save with date stamp
-  const weekKey = getWeekKey(new Date());
-  if(!p().history) p().history={};
-  if(!p().history[weekKey]) p().history[weekKey]={};
-  if(!p().history[weekKey][dayIdx]) p().history[weekKey][dayIdx]={};
+  const wk=getWeekKey(new Date());
+  if(!p().history)p().history={};
+  if(!p().history[wk])p().history[wk]={};
+  if(!p().history[wk][dayIdx])p().history[wk][dayIdx]={};
+  const planDays=plan().days;
   for(let ei=0;ei<count;ei++){
-    p().history[weekKey][dayIdx][ei]={
+    p().history[wk][dayIdx][ei]={
       sets:document.getElementById(`log_${dayIdx}_${ei}_sets`)?.value||'',
       reps:document.getElementById(`log_${dayIdx}_${ei}_reps`)?.value||'',
       weight:document.getElementById(`log_${dayIdx}_${ei}_weight`)?.value||'',
-      date: new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})
+      date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})
     };
   }
   save();
-  const btn = document.querySelector('.saveLogBtn');
+  const btn=document.querySelector('.saveLogBtn');
   if(btn){btn.textContent='Saved! ✓';btn.style.background='#30d158';setTimeout(()=>{btn.textContent='Save Log ✓';btn.style.background=''},1500);}
 }
 
-function getWeekKey(date){
-  const d = new Date(date);
-  d.setHours(0,0,0,0);
-  d.setDate(d.getDate() - d.getDay()); // Sunday start
-  return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-}
+function getWeekKey(date){const d=new Date(date);d.setHours(0,0,0,0);d.setDate(d.getDate()-d.getDay());return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
 
 function renderHistory(c){
-  const history = p().history || {};
-  const weeks = Object.keys(history).reverse();
-  const planDays = plan().days;
-  let html = `<div style="margin-top:24px"><div class="sectionTitle" style="font-size:17px">📋 Weekly History</div>`;
-  if(!weeks.length){
-    html+=`<div class="card"><div style="text-align:center;color:var(--text2);padding:20px">No history yet — start logging your workouts!</div></div>`;
-  } else {
+  const history=p().history||{};
+  const weeks=Object.keys(history).reverse();
+  const planDays=plan().days;
+  let html=`<div style="margin-top:24px"><div class="sectionTitle" style="font-size:17px">📋 Weekly History</div>`;
+  if(!weeks.length){html+=`<div class="card"><div style="text-align:center;color:var(--text2);padding:20px">No history yet — start logging!</div></div>`;}
+  else{
     weeks.forEach(wk=>{
-      const wkData = history[wk];
-      const sessionCount = Object.keys(wkData).length;
-      const dayIdxs = Object.keys(wkData);
+      const wkData=history[wk];
+      const sessionCount=Object.keys(wkData).length;
+      const id='wk_'+wk.replace(/[^a-z0-9]/gi,'_');
       html+=`<div class="card" style="margin-bottom:10px">
-        <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleWeek('wk_${wk.replace(/[^a-z0-9]/gi,'_')}')">
-          <div>
-            <div style="font-size:15px;font-weight:600">Week of ${wk}</div>
-            <div style="font-size:12px;color:var(--text2);margin-top:2px">${sessionCount} session${sessionCount!==1?'s':''} logged</div>
-          </div>
-          <span id="arr_wk_${wk.replace(/[^a-z0-9]/gi,'_')}" style="color:var(--text2);font-size:18px">›</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleWeek('${id}')">
+          <div><div style="font-size:15px;font-weight:600">Week of ${wk}</div><div style="font-size:12px;color:var(--text2);margin-top:2px">${sessionCount} session${sessionCount!==1?'s':''} logged</div></div>
+          <span id="arr_${id}" style="color:var(--text2);font-size:18px">›</span>
         </div>
-        <div id="wk_${wk.replace(/[^a-z0-9]/gi,'_')}" style="display:none;margin-top:12px">`;
-      dayIdxs.forEach(di=>{
-        const dayData = wkData[di];
-        const dayName = planDays[di]?.name || `Day ${parseInt(di)+1}`;
-        const dayDay = planDays[di]?.day || '';
-        const exs = planDays[di]?.exercises || [];
-        const exIdxs = Object.keys(dayData);
-        const sampleDate = dayData[exIdxs[0]]?.date || '';
+        <div id="${id}" style="display:none;margin-top:12px">`;
+      Object.keys(wkData).forEach(di=>{
+        const dayData=wkData[di];
+        const dayName=planDays[di]?.name||`Day ${parseInt(di)+1}`;
+        const dayDay=planDays[di]?.day||'';
+        const exs=planDays[di]?.exercises||[];
+        const exIdxs=Object.keys(dayData);
+        const sampleDate=dayData[exIdxs[0]]?.date||'';
         html+=`<div style="margin-bottom:12px;padding:10px;background:var(--bg3);border-radius:12px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:14px;font-weight:600;color:var(--accent)">${dayDay} — ${dayName}</div>
             <div style="font-size:11px;color:var(--text2)">${sampleDate}</div>
           </div>`;
         exIdxs.forEach(ei=>{
-          const log = dayData[ei];
-          const exName = exs[ei]?.name || `Exercise ${parseInt(ei)+1}`;
+          const log=dayData[ei];
+          const exName=exs[ei]?.name||`Exercise ${parseInt(ei)+1}`;
           if(log.sets||log.reps||log.weight){
-            html+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:0.5px solid var(--border)">
-              <span style="font-size:13px;color:var(--text)">${exName}</span>
+            html+=`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--border)">
+              <span style="font-size:13px">${exName}</span>
               <span style="font-size:12px;color:var(--text2)">${log.sets||'—'} sets · ${log.reps||'—'} reps · ${log.weight||'—'} lbs</span>
             </div>`;
           }
@@ -623,134 +524,55 @@ function renderHistory(c){
     });
   }
   html+=`</div>`;
-  c.innerHTML += html;
+  c.innerHTML+=html;
 }
 
 function toggleWeek(id){
-  const el = document.getElementById(id);
-  const arr = document.getElementById('arr_'+id);
-  if(!el) return;
-  const open = el.style.display==='block';
-  el.style.display = open?'none':'block';
-  if(arr) arr.textContent = open?'›':'⌄';
+  const el=document.getElementById(id);
+  const arr=document.getElementById('arr_'+id);
+  if(!el)return;
+  const open=el.style.display==='block';
+  el.style.display=open?'none':'block';
+  if(arr)arr.textContent=open?'›':'⌄';
 }
 
 // TIMER
 function setTimer(v){timerSecs=parseInt(v);resetTimer();}
-function resetTimer(){
-  clearInterval(timerInterval);timerRunning=false;
-  const btn=document.getElementById('timerStartBtn');
-  if(btn){btn.textContent='Start';btn.style.background=fontColors[p().fontColor]||'#34C759';}
-  updateTimerDisplay();
-}
+function resetTimer(){clearInterval(timerInterval);timerRunning=false;const btn=document.getElementById('timerStartBtn');if(btn){btn.textContent='Start';}updateTimerDisplay();}
 function toggleTimer(){
   if(timerRunning){clearInterval(timerInterval);timerRunning=false;document.getElementById('timerStartBtn').textContent='Resume';}
   else{timerRunning=true;document.getElementById('timerStartBtn').textContent='Pause';
-    timerInterval=setInterval(()=>{
-      timerSecs--;updateTimerDisplay();
-      if(timerSecs<=0){clearInterval(timerInterval);timerRunning=false;
-        document.getElementById('timerStartBtn').textContent='Start';
-        timerSecs=parseInt(document.getElementById('timerSel')?.value||60);
-        updateTimerDisplay();
-      }
-    },1000);
+    timerInterval=setInterval(()=>{timerSecs--;updateTimerDisplay();if(timerSecs<=0){clearInterval(timerInterval);timerRunning=false;document.getElementById('timerStartBtn').textContent='Start';timerSecs=parseInt(document.getElementById('timerSel')?.value||60);updateTimerDisplay();}},1000);
   }
 }
-function updateTimerDisplay(){
-  const d=document.getElementById('timerDisp');
-  if(d){const m=Math.floor(timerSecs/60);const s=timerSecs%60;d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}
-}
+function updateTimerDisplay(){const d=document.getElementById('timerDisp');if(d){const m=Math.floor(timerSecs/60);const s=timerSecs%60;d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}}
 
 // WEIGHT
 function renderWeight(c){
-  const wl = p().weightLog;
   c.innerHTML=`
     <div class="sectionTitle">Weekly Weight</div>
-    <div class="card">
-      <div class="cardTitle">Log This Week's Weight</div>
-      <div class="weightForm">
-        <input class="weightInput" type="number" id="weightVal" placeholder="e.g. 154 lbs" step="0.1">
-        <button class="weightAddBtn" onclick="addWeight()">Add</button>
-      </div>
+    <div class="card"><div class="cardTitle">Log This Week</div>
+      <div class="weightForm"><input class="weightInput" type="number" id="weightVal" placeholder="e.g. 154 lbs" step="0.1"><button class="weightAddBtn" onclick="addWeight()">Add</button></div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Progress Chart</div>
-      <div class="chartWrap"><canvas id="weightChart"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="cardTitle">History</div>
-      <div class="weightList" id="weightList"></div>
-    </div>
-  `;
-  renderWeightList();
-  renderWeightChart();
+    <div class="card"><div class="cardTitle">Progress Chart</div><div class="chartWrap"><canvas id="weightChart"></canvas></div></div>
+    <div class="card"><div class="cardTitle">History</div><div class="weightList" id="weightList"></div></div>`;
+  renderWeightList();renderWeightChart();
 }
-
-function addWeight(){
-  const v = parseFloat(document.getElementById('weightVal').value);
-  if(!v) return;
-  const date = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'});
-  p().weightLog.push({val:v,date});
-  save();
-  document.getElementById('weightVal').value='';
-  renderWeightList();
-  renderWeightChart();
-}
-
-function renderWeightList(){
-  const wl = p().weightLog;
-  const el = document.getElementById('weightList');
-  if(!el) return;
-  if(!wl.length){el.innerHTML=`<div style="color:var(--text2);text-align:center;padding:16px">No entries yet</div>`;return;}
-  el.innerHTML=[...wl].reverse().map((w,i)=>`
-    <div class="weightRow">
-      <div>
-        <div class="weightVal">${w.val} lbs</div>
-        <div class="weightDate">${w.date}</div>
-      </div>
-      <button class="delBtn" onclick="delWeight(${wl.length-1-i})">✕</button>
-    </div>`).join('');
-}
-
+function addWeight(){const v=parseFloat(document.getElementById('weightVal').value);if(!v)return;const date=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'});p().weightLog.push({val:v,date});save();document.getElementById('weightVal').value='';renderWeightList();renderWeightChart();}
+function renderWeightList(){const wl=p().weightLog;const el=document.getElementById('weightList');if(!el)return;if(!wl.length){el.innerHTML=`<div style="color:var(--text2);text-align:center;padding:16px">No entries yet</div>`;return;}el.innerHTML=[...wl].reverse().map((w,i)=>`<div class="weightRow"><div><div class="weightVal">${w.val} lbs</div><div class="weightDate">${w.date}</div></div><button class="delBtn" onclick="delWeight(${wl.length-1-i})">✕</button></div>`).join('');}
 function delWeight(i){p().weightLog.splice(i,1);save();renderWeightList();renderWeightChart();}
-
-function renderWeightChart(){
-  const wl = p().weightLog;
-  const canvas = document.getElementById('weightChart');
-  if(!canvas) return;
-  if(weightChart){weightChart.destroy();weightChart=null;}
-  if(wl.length<2){canvas.parentElement.innerHTML+='<div style="text-align:center;color:var(--text2);font-size:13px;padding:8px">Add at least 2 entries to see chart</div>';return;}
-  const fc = fontColors[p().fontColor]||'#34C759';
-  weightChart = new Chart(canvas,{
-    type:'line',
-    data:{
-      labels:wl.map(w=>w.date),
-      datasets:[{label:'Weight (lbs)',data:wl.map(w=>w.val),borderColor:fc,backgroundColor:fc+'33',tension:0.3,pointBackgroundColor:fc,fill:true}]
-    },
-    options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#a0a0a0',font:{size:11}}},y:{ticks:{color:'#a0a0a0',font:{size:11}}}}}
-  });
-}
+function renderWeightChart(){const wl=p().weightLog;const canvas=document.getElementById('weightChart');if(!canvas)return;if(weightChart){weightChart.destroy();weightChart=null;}if(wl.length<2){canvas.parentElement.innerHTML+=`<div style="text-align:center;color:var(--text2);font-size:13px;padding:8px">Add at least 2 entries to see chart</div>`;return;}const fc=fontColors[p().fontColor]||'#34C759';weightChart=new Chart(canvas,{type:'line',data:{labels:wl.map(w=>w.date),datasets:[{label:'Weight',data:wl.map(w=>w.val),borderColor:fc,backgroundColor:fc+'33',tension:0.3,pointBackgroundColor:fc,fill:true}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#a0a0a0',font:{size:11}}},y:{ticks:{color:'#a0a0a0',font:{size:11}}}}}});}
 
 // NUTRITION
 function renderNutrition(c){
-  const pr = p();
-  const todayKey = new Date().toDateString();
-  const meals = (pr.meals||[]).filter(m=>m.date===todayKey);
-  const totalCal = meals.reduce((s,m)=>s+m.cal,0);
-  const goal = pr.calGoal||2000;
-  const pct = Math.min(100, Math.round(totalCal/goal*100));
+  const pr=p();const todayKey=new Date().toDateString();const meals=(pr.meals||[]).filter(m=>m.date===todayKey);const totalCal=meals.reduce((s,m)=>s+m.cal,0);const goal=pr.calGoal||2000;const pct=Math.min(100,Math.round(totalCal/goal*100));
   c.innerHTML=`
     <div class="sectionTitle">Nutrition</div>
-    <div class="card">
-      <div class="cardTitle">Daily Calorie Goal</div>
-      <div style="display:flex;gap:8px;margin-bottom:8px">
-        <input class="weightInput" type="number" id="calGoalInput" value="${pr.calGoal||2000}" placeholder="Workout day goal" style="flex:1">
-        <button class="weightAddBtn" onclick="saveCalGoal()">Set</button>
-      </div>
-      <div style="font-size:12px;color:var(--text2)">Rest day goal: <input type="number" id="calGoalRest" value="${pr.calGoalRest||1600}" style="width:70px;background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:4px 6px;color:var(--text);font-size:12px"> kcal</div>
+    <div class="card"><div class="cardTitle">Calorie Goals</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px"><input class="weightInput" type="number" id="calGoalInput" value="${pr.calGoal||2000}" placeholder="Workout day"><button class="weightAddBtn" onclick="saveCalGoal()">Set</button></div>
+      <div style="font-size:12px;color:var(--text2)">Rest day: <input type="number" id="calGoalRest" value="${pr.calGoalRest||1600}" style="width:70px;background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:4px 6px;color:var(--text);font-size:12px"> kcal</div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Today — ${new Date().toLocaleDateString('en-US',{weekday:'long'})}</div>
+    <div class="card"><div class="cardTitle">Today</div>
       <div class="macroRow">
         <div class="macroCard"><div class="macroVal">${totalCal}</div><div class="macroLabel">Consumed</div></div>
         <div class="macroCard"><div class="macroVal">${goal}</div><div class="macroLabel">Goal</div></div>
@@ -759,127 +581,56 @@ function renderNutrition(c){
       <div class="progressBar"><div class="progressFill" style="width:${pct}%"></div></div>
       <div style="font-size:12px;color:var(--text2);text-align:right">${pct}% of goal</div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Log a Meal</div>
+    <div class="card"><div class="cardTitle">Log a Meal</div>
       <div class="mealForm">
-        <input class="mealInput" id="mealName" placeholder="Meal name (e.g. Chicken & Rice)">
-        <input class="mealInput" type="number" id="mealCal" placeholder="Calories (e.g. 450)">
+        <input class="mealInput" id="mealName" placeholder="Meal name">
+        <input class="mealInput" type="number" id="mealCal" placeholder="Calories">
         <button class="saveLogBtn" onclick="addMeal()">Add Meal</button>
       </div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Today's Meals</div>
-      <div id="mealList"></div>
-    </div>
-  `;
+    <div class="card"><div class="cardTitle">Today's Meals</div><div id="mealList"></div></div>`;
   renderMealList(todayKey);
 }
-
-function saveCalGoal(){
-  p().calGoal=parseInt(document.getElementById('calGoalInput').value)||2000;
-  p().calGoalRest=parseInt(document.getElementById('calGoalRest').value)||1600;
-  save();renderNutrition(document.getElementById('mainContent'));
-}
-
-function addMeal(){
-  const n=document.getElementById('mealName').value.trim();
-  const cal=parseInt(document.getElementById('mealCal').value);
-  if(!n||!cal) return;
-  const todayKey=new Date().toDateString();
-  if(!p().meals) p().meals=[];
-  p().meals.push({name:n,cal,date:todayKey});
-  save();
-  renderNutrition(document.getElementById('mainContent'));
-}
-
-function delMeal(i){
-  p().meals.splice(i,1);save();
-  renderNutrition(document.getElementById('mainContent'));
-}
-
-function renderMealList(todayKey){
-  const el=document.getElementById('mealList');
-  if(!el) return;
-  const meals=(p().meals||[]);
-  const todayMeals=meals.map((m,i)=>({...m,i})).filter(m=>m.date===todayKey);
-  if(!todayMeals.length){el.innerHTML=`<div style="color:var(--text2);text-align:center;padding:12px">No meals logged today</div>`;return;}
-  el.innerHTML=todayMeals.map(m=>`
-    <div class="mealRow">
-      <div><div class="mealName">${m.name}</div></div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="mealCal">${m.cal} kcal</span>
-        <button class="delBtn" onclick="delMeal(${m.i})">✕</button>
-      </div>
-    </div>`).join('');
-}
+function saveCalGoal(){p().calGoal=parseInt(document.getElementById('calGoalInput').value)||2000;p().calGoalRest=parseInt(document.getElementById('calGoalRest').value)||1600;save();renderNutrition(document.getElementById('mainContent'));}
+function addMeal(){const n=document.getElementById('mealName').value.trim();const cal=parseInt(document.getElementById('mealCal').value);if(!n||!cal)return;const todayKey=new Date().toDateString();if(!p().meals)p().meals=[];p().meals.push({name:n,cal,date:todayKey});save();renderNutrition(document.getElementById('mainContent'));}
+function delMeal(i){p().meals.splice(i,1);save();renderNutrition(document.getElementById('mainContent'));}
+function renderMealList(todayKey){const el=document.getElementById('mealList');if(!el)return;const meals=(p().meals||[]).map((m,i)=>({...m,i})).filter(m=>m.date===todayKey);if(!meals.length){el.innerHTML=`<div style="color:var(--text2);text-align:center;padding:12px">No meals logged today</div>`;return;}el.innerHTML=meals.map(m=>`<div class="mealRow"><div class="mealName">${m.name}</div><div style="display:flex;align-items:center;gap:8px"><span class="mealCal">${m.cal} kcal</span><button class="delBtn" onclick="delMeal(${m.i})">✕</button></div></div>`).join('');}
 
 // SETTINGS
 function renderSettings(c){
-  const pr = p();
+  const pr=p();
   c.innerHTML=`
     <div class="sectionTitle">Settings</div>
-    <div class="card">
-      <div class="cardTitle">Profile</div>
-      <div class="settingRow">
-        <span class="settingLabel">Name</span>
-        <input id="settingName" value="${pr.name}" style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--text);font-size:14px;width:130px;text-align:right">
-      </div>
-      <div class="settingRow">
-        <span class="settingLabel">Profile Photo</span>
-        <button class="photoPickerBtn" onclick="document.getElementById('photoInput').click()">Choose Photo</button>
-      </div>
+    <div class="card"><div class="cardTitle">Profile</div>
+      <div class="settingRow"><span class="settingLabel">Name</span><input id="settingName" value="${pr.name}" style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--text);font-size:14px;width:130px;text-align:right"></div>
+      <div class="settingRow"><span class="settingLabel">Profile Photo</span><button class="photoPickerBtn" onclick="document.getElementById('photoInput').click()">Choose Photo</button></div>
       ${pr.photo?`<div style="margin-top:8px;text-align:center"><img src="${pr.photo}" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--accent)"></div>`:''}
       <button class="saveLogBtn" style="margin-top:12px" onclick="saveName()">Save Name</button>
     </div>
-    <div class="card">
-      <div class="cardTitle">Font Color</div>
-      <div class="colorPicker">
-        ${Object.entries(fontColors).map(([k,v])=>`<div class="colorDot${pr.fontColor===k?' selected':''}" style="background:${v}" onclick="setFontColor('${k}')"></div>`).join('')}
-      </div>
+    <div class="card"><div class="cardTitle">Font Color</div>
+      <div class="colorPicker">${Object.entries(fontColors).map(([k,v])=>`<div class="colorDot${pr.fontColor===k?' selected':''}" style="background:${v}" onclick="setFontColor('${k}')"></div>`).join('')}</div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Appearance</div>
-      <div class="settingRow">
-        <span class="settingLabel">Dark Mode</span>
-        <button class="toggle${pr.darkMode?' on':''}" id="darkToggle" onclick="toggleTheme();this.classList.toggle('on')"></button>
-      </div>
+    <div class="card"><div class="cardTitle">Appearance</div>
+      <div class="settingRow"><span class="settingLabel">Dark Mode</span><button class="toggle${pr.darkMode?' on':''}" id="darkToggle" onclick="toggleTheme();this.classList.toggle('on')"></button></div>
     </div>
-    <div class="card">
-      <div class="cardTitle">Account</div>
-      <button class="switchProfileBtn" onclick="switchProfile()">⇄ Switch Profile</button>
-    </div>
-  `;
+    <div class="card"><div class="cardTitle">Account</div><button class="switchProfileBtn" onclick="switchProfile()">⇄ Switch Profile</button></div>
+    <div class="card"><div class="cardTitle">Backup & Restore</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:12px">Export your data to backup or transfer to a new phone</div>
+      <button class="saveLogBtn" style="margin-bottom:10px" onclick="exportData()">📤 Export My Data</button>
+      <button class="saveLogBtn" style="background:var(--bg3);color:var(--text);border:0.5px solid var(--border)" onclick="document.getElementById('importInput').click()">📥 Import Data</button>
+      <div id="importMsg" style="font-size:13px;color:var(--accent);margin-top:8px;text-align:center"></div>
+    </div>`;
 }
 
-function saveName(){
-  const v=document.getElementById('settingName').value.trim();
-  if(v){p().name=v;save();document.getElementById('topProfileName').textContent=v;}
-}
+function saveName(){const v=document.getElementById('settingName').value.trim();if(v){p().name=v;save();document.getElementById('topProfileName').textContent=v;}}
+function setFontColor(k){p().fontColor=k;save();applyThemeAndFont();document.querySelectorAll('.colorDot').forEach(d=>d.classList.remove('selected'));event.target.classList.add('selected');}
+function handlePhoto(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{p().photo=r.result;save();renderSettings(document.getElementById('mainContent'));};r.readAsDataURL(file);}
+function exportData(){const data=JSON.stringify(profiles,null,2);const blob=new Blob([data],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`gympal_backup_${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).replace(/,?\s/g,'_')}.json`;a.click();URL.revokeObjectURL(url);}
+function importData(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const imported=JSON.parse(r.result);if(!Array.isArray(imported))throw new Error('Invalid');profiles=imported;save();const msg=document.getElementById('importMsg');if(msg)msg.textContent='✅ Imported!';setTimeout(()=>switchProfile(),1500);}catch(err){const msg=document.getElementById('importMsg');if(msg){msg.textContent='❌ Invalid file';msg.style.color='#FF3B30';}}};r.readAsText(file);}
+function switchProfile(){document.getElementById('appShell').style.display='none';document.getElementById('profileScreen').style.display='flex';selectProfile(currentProfile);}
 
-function setFontColor(k){
-  p().fontColor=k;save();applyThemeAndFont();
-  document.querySelectorAll('.colorDot').forEach(d=>d.classList.remove('selected'));
-  event.target.classList.add('selected');
-}
-
-function handlePhoto(e){
-  const file=e.target.files[0];
-  if(!file) return;
-  const r=new FileReader();
-  r.onload=()=>{p().photo=r.result;save();renderSettings(document.getElementById('mainContent'));};
-  r.readAsDataURL(file);
-}
-
-function switchProfile(){
-  document.getElementById('appShell').style.display='none';
-  document.getElementById('profileScreen').style.display='flex';
-  selectProfile(currentProfile);
-}
-
-// INIT
 window.onload=()=>{
   selectProfile(0);
-  // load saved profile photos on profile screen
   profiles.forEach((pr,j)=>{
     const av=document.getElementById('av'+j);
     if(pr.photo){av.innerHTML=`<img src="${pr.photo}">`;}
